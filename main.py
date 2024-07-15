@@ -47,13 +47,11 @@ def extract_exons(file_path, exons, direction):
     for seq_record in SeqIO.parse(file_path, "fasta"):
         c =  c + 1
 
-        if direction == 'fd':
-                if c <= exons:
-                    finalsequence = finalsequence + seq_record.seq
+        if direction == 'fd' and  c<= exons:
+            finalsequence = finalsequence + seq_record.seq
                     
-        elif direction == 'bw':
-                if c >= exons:
-                    finalsequence = finalsequence + seq_record.seq
+        elif direction == 'bw' and c >= exons :
+            finalsequence = finalsequence + seq_record.seq
     
     return finalsequence    
 
